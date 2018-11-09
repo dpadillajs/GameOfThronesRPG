@@ -1,0 +1,59 @@
+body {
+    background: url(../images/DarkTile.jpg);
+    background-repeat: repeat;
+}
+
+#main-grid {
+    min-height: calc(100vh - 100px);
+}
+
+#battle-card-grid {
+    display: grid;
+    background-color: rgba(169, 169, 169, 0.4);
+    width: 90%;
+    margin: 40px auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 50%;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        ". starks . lannisters . targaryens . walkers .";
+}
+
+.battle-cards {
+    border: solid white 10px;
+    border-radius: 10%;
+    height: 273px;
+    width: 200px;
+}
+
+#starks {
+    grid-area: starks;
+    opacity: 1!important;
+}
+
+#lannisters {
+    grid-area: lannisters;
+}
+
+#targaryens {
+    grid-area: targaryens;
+}
+
+#white-walkers {
+    grid-area: walkers;
+}
+
+footer {
+    height: 100px;
+    background: url("../images/FrozenTile.jpg");
+    background-repeat: repeat;
+    opacity: .6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-family: 'Cormorant Unicase', serif;
+    font-weight: bold;
+}
