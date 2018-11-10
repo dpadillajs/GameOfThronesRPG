@@ -30,7 +30,7 @@ h1 {
     margin: 40px auto;
     padding-top: 40px;
     padding-bottom: 40px;
-    border-radius: 50%;
+    border-radius: 10px;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: 1fr;
     grid-template-areas:
@@ -38,6 +38,8 @@ h1 {
 }
 
 .battle-cards {
+    position: static;
+    z-index: 2;
     border: solid white 10px;
     border-radius: 10%;
     height: 273px;
@@ -74,11 +76,13 @@ h1 {
     display: flex;
     justify-content: center;
     position: relative;
+    height: 273px;
+    width: 200px;
 }
 
 .hitpoints {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     bottom: -15px;
     font-size: 45px;
     color: white;
@@ -88,7 +92,7 @@ h1 {
 
 .card-names {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     top: 0;
     margin-top: 10px;
     font-size: 20px;
@@ -114,7 +118,7 @@ h1 {
 
 .attacker {
     position: absolute;
-    z-index: -1;
+    z-index: 3;
     border: solid rgb(27, 66, 108) 10px;
     border-radius: 10%;
     height: 273px;
@@ -136,7 +140,7 @@ h1 {
 
 .defender {
     position: absolute;
-    z-index: -1;
+    z-index: 3;
     border: solid rgb(108, 27, 27) 10px;
     border-radius: 10%;
     height: 273px;
@@ -145,19 +149,26 @@ h1 {
 
 .card-role {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     top: 56px;
-    right: -20px;
-    color: #ffffff;
+    right: -17px;
     font-size: 15px;
     writing-mode: vertical-rl;
     text-orientation: upright;
     font-family: 'IM Fell DW Pica SC', serif;
     background-color: black;
-    border: solid white 1px;
+    color: white;
     border-radius: 20%;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.atk-role {
+    border: solid rgb(27, 66, 108) 4px;
+}
+
+.def-role {
+    border: solid rgb(108, 27, 27) 4px;
 }
 
 #result-grid {
@@ -215,13 +226,13 @@ h1 {
 .blue-fire {
     filter: hue-rotate(180deg);
     position: absolute;
-    z-index: -2;
+    z-index: 1;
     
 }
 
 .red-fire {
     position: absolute;
-    z-index: -2;
+    z-index: 1;
 }
 
 footer {

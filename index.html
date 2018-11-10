@@ -19,6 +19,8 @@
 
     <body>
 
+        <audio src="assets/music/GoTmusic.m4a" id="got-music" type="audio/m4a" loop="loop" autoplay="autoplay"></audio>
+
         <header id="user-choice">
             <h1>Choose Your Hero</h1>
         </header>
@@ -29,44 +31,64 @@
 
                 <div id="starks">
 
-                    <div class="relative-cards">
-                        <img class="battle-cards access-stark" id="starks-card" src="assets/images/Stark.jpg" alt="Battle Card feat. Jon Snow">
-                        <p class="hitpoints stark-hp access-stark">hp: 100</p>
-                        <p class="card-names access-stark">Jon Snow</p>
+                    <div class="relative-cards access-stark2">
+
+                        <div class="relative-cards access-stark">
+                            <img class="battle-cards" id="starks-card" src="assets/images/Stark.jpg" alt="Battle Card feat. Jon Snow">
+                            <p class="hitpoints stark-hp">hp: 100</p>
+                            <p class="card-names">Jon Snow</p>
+                        </div>
+
                         <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
+
                     </div>
 
                 </div>
 
                 <div id="lannisters">
 
-                    <div class="relative-cards">
-                        <img class="battle-cards access-lannister" id="lannisters-card" src="assets/images/Lannister.jpg" alt="Battle Card feat. Cersei Lannister">
-                        <p class="hitpoints lannister-hp access-lannister">hp: 125</p>
-                        <p class="card-names access-lannister">Cersei Lannister</p>
+                    <div class="relative-cards access-lannister2">
+
+                        <div class="relative-cards access-lannister">
+                            <img class="battle-cards" id="lannisters-card" src="assets/images/Lannister.jpg" alt="Battle Card feat. Cersei Lannister">
+                            <p class="hitpoints lannister-hp">hp: 125</p>
+                            <p class="card-names">Cersei Lannister</p>
+                        </div>
+
                         <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
+
                     </div>
 
                 </div>
 
                 <div id="targaryens">
 
-                    <div class="relative-cards">
-                        <img class="battle-cards access-targaryen"  id="targaryens-card" src="assets/images/Targaryen.jpg" alt="Battle Card feat. Daenerys Targaryen">
-                        <p class="hitpoints targaryen-hp access-targaryen">hp: 150</p>
-                        <p class="card-names access-targaryen">Daenerys Targaryen</p>
+                    <div class="relative-cards access-targaryen2">
+                        
+                        <div class="relative-cards access-targaryen">
+                            <img class="battle-cards"  id="targaryens-card" src="assets/images/Targaryen.jpg" alt="Battle Card feat. Daenerys Targaryen">
+                            <p class="hitpoints targaryen-hp">hp: 150</p>
+                            <p class="card-names">Daenerys Targaryen</p>
+                        </div>
+
                         <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
+
                     </div>
 
                 </div>
 
                 <div id="white-walkers">
 
-                    <div class="relative-cards">
-                        <img class="battle-cards access-walker" id="walkers-card" src="assets/images/White Walkers.jpg" alt="Battle Card feat. The Night King">
-                        <p class="hitpoints walker-hp access-walker">hp: 200</p>
-                        <p class="card-names access-walker">The Night King</p>
+                    <div class="relative-cards access-walker2">
+
+                        <div class="relative-cards access-walker">
+                            <img class="battle-cards" id="walkers-card" src="assets/images/White Walkers.jpg" alt="Battle Card feat. The Night King">
+                            <p class="hitpoints walker-hp">hp: 200</p>
+                            <p class="card-names">The Night King</p>
+                        </div>
+
                         <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
+
                     </div>
 
                 </div>
@@ -92,11 +114,11 @@
 
                     <div id="attacker-card">
 
-                        <div class="relative-cards">
+                        <div class="relative-cards atk-position">
 
                             <img class="attacker" src="assets/images/HeroShell.png" alt="Hero Placeholder">
                             <img class="attacker blue-fire" class="blue-fire" src="assets/images/fire.gif" alt="Hero Placeholder">
-                            <p class="card-role">ATTACKER</p>
+                            <p class="card-role atk-role">ATTACKER</p>
 
                         </div>
 
@@ -106,11 +128,11 @@
 
                     <div id="defender-card">
 
-                        <div class="relative-cards">
+                        <div class="relative-cards def-position">
 
                             <img class="defender" src="assets/images/HeroShell.png" alt="Hero Placeholder">
                             <img class="defender red-fire" src="assets/images/fire.gif" alt="Hero Placeholder" loop="true">
-                            <p class="card-role">DEFENDER</p>
+                            <p class="card-role def-role">DEFENDER</p>
 
                         </div>
 
