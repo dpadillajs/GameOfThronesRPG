@@ -3,11 +3,27 @@ body {
     background-repeat: repeat;
 }
 
-#main-grid {
+#user-choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background: url(../images/Banners.png);
+    background-repeat: repeat;
+    opacity: .6;
+}
+
+h1 {
+    color: white;
+    font-size: 125px;
+    font-family: 'IM Fell DW Pica SC', serif;
+}
+
+#container {
     min-height: calc(100vh - 100px);
 }
 
-#battle-card-grid {
+#hero-grid {
     display: grid;
     background-color: rgba(169, 169, 169, 0.4);
     width: 90%;
@@ -28,9 +44,18 @@ body {
     width: 200px;
 }
 
+.battle-outline {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    border: solid white 10px;
+    border-radius: 10%;
+    height: 273px;
+    width: 200px;
+}
+
 #starks {
-    grid-area: starks;
-    opacity: 1!important;
+    grid-area: starks
 }
 
 #lannisters {
@@ -43,6 +68,160 @@ body {
 
 #white-walkers {
     grid-area: walkers;
+}
+
+.relative-cards {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.hitpoints {
+    position: absolute;
+    z-index: 2;
+    bottom: -15px;
+    font-size: 45px;
+    color: white;
+    opacity: .75;
+    font-family: 'IM Fell DW Pica SC', serif;
+}
+
+.card-names {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    margin-top: 10px;
+    font-size: 20px;
+    color: white;
+    opacity: .75;
+    font-family: 'IM Fell DW Pica SC', serif;
+}
+
+.battle-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        ". attacker . throne . defender .";
+}
+
+#attacker-card {
+    grid-area: attacker;
+    height: 273px;
+    width: 200px;
+    margin-top: 80px;
+}
+
+.attacker {
+    position: absolute;
+    z-index: -1;
+    border: solid rgb(27, 66, 108) 10px;
+    border-radius: 10%;
+    height: 273px;
+    width: 200px;
+}
+
+#iron-throne {
+    grid-area: throne;
+    height: 400px;
+    width: 351px;
+}
+
+#defender-card {
+    grid-area: defender;
+    height: 273px;
+    width: 200px;
+    margin-top: 80px;
+}
+
+.defender {
+    position: absolute;
+    z-index: -1;
+    border: solid rgb(108, 27, 27) 10px;
+    border-radius: 10%;
+    height: 273px;
+    width: 200px;
+}
+
+.card-role {
+    position: absolute;
+    z-index: 2;
+    top: 56px;
+    right: -20px;
+    color: #ffffff;
+    font-size: 15px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: 'IM Fell DW Pica SC', serif;
+    background-color: black;
+    border: solid white 1px;
+    border-radius: 20%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#result-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-areas:
+        ". attack-info . controls . defend-info .";
+}
+
+.results {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: 'Cormorant Unicase', serif;
+    color: white;
+    opacity: .75;
+    font-weight: bold;
+    border: solid white 3px;
+    border-radius: 5px;
+    background-color: rgb(68, 0, 0);
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+}
+
+#game-controls {
+    grid-area: controls;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#attacker-results {
+    grid-area: attack-info;
+}
+
+#defender-results {
+    grid-area: defend-info;
+}
+
+.button-adj {
+    margin: auto 50px;
+    width: 100px;
+    height: 40px;
+    font-family: 'Cormorant Unicase', serif;
+    color: white;
+    opacity: .75;
+    font-weight: bold;
+    border: solid white 3px;
+    border-radius: 5px;
+    background-color: rgb(0, 19, 68);
+    font-size: 20px;
+}
+
+.blue-fire {
+    filter: hue-rotate(180deg);
+    position: absolute;
+    z-index: -2;
+    
+}
+
+.red-fire {
+    position: absolute;
+    z-index: -2;
 }
 
 footer {

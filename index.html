@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC" rel="stylesheet">
 
         <title>Game of Thrones - Card RPG</title>
 
@@ -18,18 +19,104 @@
 
     <body>
 
-        <div id="main-grid">
+        <header id="user-choice">
+            <h1>Choose Your Hero</h1>
+        </header>
 
-            <header id="battle-card-grid">
+        <div id="container">
 
-                <img class="battle-cards" id="starks" src="assets/images/Stark.jpg" alt="Battle Card feat. Jon Snow">
-                <img class="battle-cards" id="lannisters" src="assets/images/Lannister.jpg" alt="Battle Card feat. Cersei Lannister">
-                <img class="battle-cards" id="targaryens" src="assets/images/Targaryen.jpg" alt="Battle Card feat. Daenerys Targaryen">
-                <img class="battle-cards" id="white-walkers" src="assets/images/White Walkers.jpg" alt="Battle Card feat. The Night King">
+            <div id="hero-grid">
 
-            </header>
+                <div id="starks">
 
-            <main>MAIN
+                    <div class="relative-cards">
+                        <img class="battle-cards access-stark" id="starks-card" src="assets/images/Stark.jpg" alt="Battle Card feat. Jon Snow">
+                        <p class="hitpoints stark-hp access-stark">hp: 100</p>
+                        <p class="card-names access-stark">Jon Snow</p>
+                        <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
+                    </div>
+
+                </div>
+
+                <div id="lannisters">
+
+                    <div class="relative-cards">
+                        <img class="battle-cards access-lannister" id="lannisters-card" src="assets/images/Lannister.jpg" alt="Battle Card feat. Cersei Lannister">
+                        <p class="hitpoints lannister-hp access-lannister">hp: 125</p>
+                        <p class="card-names access-lannister">Cersei Lannister</p>
+                        <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
+                    </div>
+
+                </div>
+
+                <div id="targaryens">
+
+                    <div class="relative-cards">
+                        <img class="battle-cards access-targaryen"  id="targaryens-card" src="assets/images/Targaryen.jpg" alt="Battle Card feat. Daenerys Targaryen">
+                        <p class="hitpoints targaryen-hp access-targaryen">hp: 150</p>
+                        <p class="card-names access-targaryen">Daenerys Targaryen</p>
+                        <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
+                    </div>
+
+                </div>
+
+                <div id="white-walkers">
+
+                    <div class="relative-cards">
+                        <img class="battle-cards access-walker" id="walkers-card" src="assets/images/White Walkers.jpg" alt="Battle Card feat. The Night King">
+                        <p class="hitpoints walker-hp access-walker">hp: 200</p>
+                        <p class="card-names access-walker">The Night King</p>
+                        <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <main>
+
+                <section id="result-grid">
+
+                    <p class="results" id="attacker-results">You have decreased Cersei Lannister's soldiers by 25pts.</p>
+
+                    <div id="game-controls">
+                        <button type="button" id="attack-button" class="button-adj">Attack</button>
+                        <button type="button" id="restart-button" class="button-adj">Restart</button>
+                    </div>
+
+                    <p class="results" id="defender-results">Cersei Lannister has decreased your soldiers numbers by 10pts.</p>
+
+                </section>
+
+                <section class="battle-grid">
+
+                    <div id="attacker-card">
+
+                        <div class="relative-cards">
+
+                            <img class="attacker" src="assets/images/HeroShell.png" alt="Hero Placeholder">
+                            <img class="attacker blue-fire" class="blue-fire" src="assets/images/fire.gif" alt="Hero Placeholder">
+                            <p class="card-role">ATTACKER</p>
+
+                        </div>
+
+                    </div>
+
+                    <img id="iron-throne" src="assets/images/Iron Throne.png" alt="The Iron Throne">
+
+                    <div id="defender-card">
+
+                        <div class="relative-cards">
+
+                            <img class="defender" src="assets/images/HeroShell.png" alt="Hero Placeholder">
+                            <img class="defender red-fire" src="assets/images/fire.gif" alt="Hero Placeholder" loop="true">
+                            <p class="card-role">DEFENDER</p>
+
+                        </div>
+
+                    </div>
+
+                </section>
 
             </main>
 
