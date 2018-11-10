@@ -43,11 +43,6 @@ var atkPosition = $('.atk-position');
 var defPosition = $('.def-position');
 var flagHero = false;
 var flagEnemy = false;
-var gotMusic = $("#got-music");
-
-function playMusic () {
-    gotMusic[0].play();
-}
 
 restartButton.click(function() {
     location.reload();
@@ -79,7 +74,6 @@ function moveToDefender() {
     });
 }
 
-playMusic();
 moveToDefender();
 moveToAttacker();
 
