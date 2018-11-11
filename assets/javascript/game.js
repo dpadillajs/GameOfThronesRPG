@@ -3,53 +3,53 @@ var westeros = {
 
     jonSnow : {
         name : "Jon Snow",
-        hp : 100,
+        hp : 10000,
         atkBoost : function () {
-            atkPower += 25;
+            atkPower += 2250;
             return atkPower;
         },
-        counterAtk : 15,
+        counterAtk : 1750,
         updateHpText : function () {
-            $('.stark-hp').text("hp: " + this.hp);
+            $('.stark-hp').text(this.hp);
         }
     },
 
     madQueen : {
         name : "Cersei Lannister",
-        hp : 125,
+        hp : 12500,
         atkBoost : function () {
-            atkPower += 15;
+            atkPower += 1750;
             return atkPower;
         },
-        counterAtk : 10,
+        counterAtk : 2000,
         updateHpText : function () {
-            $('.lannister-hp').text("hp: " + this.hp);
+            $('.lannister-hp').text(this.hp);
         }
     },
 
     lastTargaryen : {
         name : "Daenerys Targaryen",
-        hp : 150,
+        hp : 15000,
         atkBoost : function () {
-            atkPower += 20;
+            atkPower += 1250;
             return atkPower;
         },
-        counterAtk : 20,
+        counterAtk : 2250,
         updateHpText : function () {
-            $('.targaryen-hp').text("hp: " + this.hp);
+            $('.targaryen-hp').text(this.hp);
         }
     },
 
     nightKing : {
         name : "The Night King",
-        hp : 200,
+        hp : 20000,
         atkBoost : function () {
-            atkPower += 10;
+            atkPower += 1000;
             return atkPower;
         },
-        counterAtk : 25,
+        counterAtk : 2750,
         updateHpText : function () {
-            $('.walker-hp').text("hp: " + this.hp);
+            $('.walker-hp').text(this.hp);
         }
     }
 
@@ -63,7 +63,10 @@ var $attackButton = $('#attack-button');
 var $restartButton = $('#restart-button');
 var $atkPosition = $('.atk-position');
 var $defPosition = $('.def-position');
+var assignSound = $('#bell-sound');
+var attackSound = $('#atk-sound');
 
+var battleCount = 0;
 var atkPower = 0;
 var attackerCard;
 var defenderCard;
@@ -71,6 +74,16 @@ var defeatedOpp;
 var flagHero = false;
 var flagEnemy = false;
 var flagAttack = false;
+
+function playSwords() {
+    attackSound[0].play();
+    attackSound.prop("volume", 0.25);
+}
+
+function playBells() {
+    assignSound[0].play();
+    assignSound.prop("volume", 0.5);
+}
 
 $restartButton.click(function() {
     location.reload();
@@ -93,17 +106,21 @@ function extractData(cardId) {
 
 function assignStage() {
     $("[js-card-move]").on("click", function() {
-        if(!flagHero) {      
+        if(!flagHero) {
+            playBells();      
             $atkPosition.append(this);
             attackerCard = extractData(this.id);
             flagHero = true;
             $headerText.text("Declare Your Enemy");
 
         } else if (!flagEnemy) {
+            playBells();
             $defPosition.append(this);
             flagAttack = false;    
             defeatedOpp = this;
             defenderCard = extractData(this.id);
+            $atkResults.text('"The army awaits your command. Shall we proceed?"');
+            $defResults.text(defenderCard.name + " leads an army and draws near.");
             flagEnemy = true;
         }
     });
@@ -118,12 +135,22 @@ function attackStage() {
             return;
         }
         defenderCard.hp -= attackerCard.atkBoost();
+        playSwords();
         if (defenderCard.hp <= 0) {
             defeatedOpp.remove();
+            battleCount++;
             flagEnemy = false;
             $atkResults.text("And the climb to the Iron Throne continues...");
             $defResults.text(defenderCard.name + "'s army has been defeated. " + defenderCard.name + " died in combat.");
-            flagAttack = true;    
+            flagAttack = true; 
+            if (battleCount === 3) {
+                flagEnemy = true;
+                flagHero = true;
+                flagAttack = true; 
+                $atkResults.text("You have defeated everyone who opposed you. The Iron Throne is yours.");
+                $defResults.text("Power resides where men believe it resides. It's a trick. A shadow on the wall...");
+                return;
+            }   
         }
         defenderCard.updateHpText();
         if (attackerCard.hp > 0 && defenderCard.hp > 0) {
@@ -138,8 +165,8 @@ function attackStage() {
                 $defResults.text(defenderCard.name + " has wiped out your army. Press RESTART to try again.");    
             } else {
                 attackerCard.updateHpText();
-                $atkResults.text("You have decreased " + defenderCard.name + "'s soldier numbers by " + atkPower + "pts.");
-                $defResults.text(defenderCard.name + " has decreased your soldier numbers by " + defenderCard.counterAtk + "pts.");    
+                $atkResults.text("You have decreased " + defenderCard.name + "'s forces by " + atkPower + ".");
+                $defResults.text(defenderCard.name + " has decreased your forces by " + defenderCard.counterAtk + ".");    
             }
         }
     });
@@ -148,26 +175,4 @@ function attackStage() {
 assignStage();
 attackStage();
 
-// TEST
-
-// if (attackerCard.hp <= 0) {
-//     flagEnemy = true;
-//     flagHero = true;
-//     attackerCard.hp = 0;
-//     attackerCard.updateHpText();
-//     $atkResults.text("When you play the game of thrones, you win or you die. There is no middle ground.");
-//     $defResults.html(defenderCard.name + " has wiped out your army. Press <em>RESTART</em> to try again.");    
-// }
-
-// if (defenderCard.hp <= 0) {
-//     defeatedOpp.remove();
-//     flagEnemy = false;
-//     $atkResults.text("And the climb to the Iron Throne continues...");
-//     $defResults.text(defenderCard.name + "'s army has been defeated. " + defenderCard.name + " died in combat.");    
-// }
-
-// if (attackerCard.hp > 0 && defenderCard.hp > 0) {
-//     attackerCard.updateHpText();
-//     $atkResults.text("You have decreased " + defenderCard.name + "'s soldier numbers by " + atkPower + "pts.");
-//     $defResults.text(defenderCard.name + " has decreased your soldier numbers by " + defenderCard.counterAtk + "pts.");
-// }
+console.log
