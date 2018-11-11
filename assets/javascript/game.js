@@ -70,6 +70,7 @@ var defenderCard;
 var defeatedOpp;
 var flagHero = false;
 var flagEnemy = false;
+var flagAttack = false;
 
 $restartButton.click(function() {
     location.reload();
@@ -100,6 +101,7 @@ function assignStage() {
 
         } else if (!flagEnemy) {
             $defPosition.append(this);
+            flagAttack = false;    
             defeatedOpp = this;
             defenderCard = extractData(this.id);
             flagEnemy = true;
@@ -112,19 +114,45 @@ function attackStage() {
         if (!attackerCard || !defenderCard) {
             return;     
         }
+        if (flagAttack) {
+            return;
+        }
         defenderCard.hp -= attackerCard.atkBoost();
-        attackerCard.hp -= defenderCard.counterAtk;
-        attackerCard.updateHpText();
+        if (defenderCard.hp <= 0) {
+            defeatedOpp.remove();
+            flagEnemy = false;
+            $atkResults.text("And the climb to the Iron Throne continues...");
+            $defResults.text(defenderCard.name + "'s army has been defeated. " + defenderCard.name + " died in combat.");
+            flagAttack = true;    
+        }
         defenderCard.updateHpText();
-        $atkResults.text("You have decreased " + defenderCard.name + "'s soldier numbers by " + atkPower + "pts.");
-        $defResults.text(defenderCard.name + " has decreased your soldier numbers by " + defenderCard.counterAtk + "pts.");
+        if (attackerCard.hp > 0 && defenderCard.hp > 0) {
+            attackerCard.hp -= defenderCard.counterAtk;
+            if (attackerCard.hp <= 0) {
+                flagEnemy = true;
+                flagHero = true;
+                flagAttack = true;    
+                attackerCard.hp = 0;
+                attackerCard.updateHpText();
+                $atkResults.text("When you play the game of thrones, you win or you die. There is no middle ground.");
+                $defResults.text(defenderCard.name + " has wiped out your army. Press RESTART to try again.");    
+            } else {
+                attackerCard.updateHpText();
+                $atkResults.text("You have decreased " + defenderCard.name + "'s soldier numbers by " + atkPower + "pts.");
+                $defResults.text(defenderCard.name + " has decreased your soldier numbers by " + defenderCard.counterAtk + "pts.");    
+            }
+        }
     });
 }
 
 assignStage();
 attackStage();
 
+// TEST
+
 // if (attackerCard.hp <= 0) {
+//     flagEnemy = true;
+//     flagHero = true;
 //     attackerCard.hp = 0;
 //     attackerCard.updateHpText();
 //     $atkResults.text("When you play the game of thrones, you win or you die. There is no middle ground.");
@@ -136,4 +164,10 @@ attackStage();
 //     flagEnemy = false;
 //     $atkResults.text("And the climb to the Iron Throne continues...");
 //     $defResults.text(defenderCard.name + "'s army has been defeated. " + defenderCard.name + " died in combat.");    
+// }
+
+// if (attackerCard.hp > 0 && defenderCard.hp > 0) {
+//     attackerCard.updateHpText();
+//     $atkResults.text("You have decreased " + defenderCard.name + "'s soldier numbers by " + atkPower + "pts.");
+//     $defResults.text(defenderCard.name + " has decreased your soldier numbers by " + defenderCard.counterAtk + "pts.");
 // }
