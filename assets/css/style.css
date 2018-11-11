@@ -44,6 +44,11 @@ h1 {
     border-radius: 10%;
     height: 273px;
     width: 200px;
+    filter: contrast(1.25);
+}
+
+a:hover {
+    filter: brightness(1.25);
 }
 
 .battle-outline {
@@ -147,28 +152,37 @@ h1 {
     width: 200px;
 }
 
-.card-role {
+.card-format {
     position: absolute;
     z-index: 4;
-    top: 56px;
-    right: -17px;
+    border: solid rgb(255, 255, 255) 10px;
+    border-radius: 10%;
+    height: 273px;
+    width: 200px;
+}
+
+.card-role {
+    position: absolute;
+    z-index: 5;
+    top: 44px;
+    right: -19px;
     font-size: 15px;
     writing-mode: vertical-rl;
     text-orientation: upright;
     font-family: 'IM Fell DW Pica SC', serif;
-    background-color: black;
     color: white;
-    border-radius: 20%;
+    border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
+    border: solid white 2px;
 }
 
 .atk-role {
-    border: solid rgb(27, 66, 108) 4px;
+    background-color: rgb(27, 66, 108);
 }
 
 .def-role {
-    border: solid rgb(108, 27, 27) 4px;
+    background-color: rgb(108, 27, 27);
 }
 
 #result-grid {
@@ -188,7 +202,6 @@ h1 {
     font-weight: bold;
     border: solid white 3px;
     border-radius: 5px;
-    background-color: rgb(68, 0, 0);
     width: 300px;
     height: 100px;
     padding: 10px;
@@ -219,7 +232,7 @@ h1 {
     font-weight: bold;
     border: solid white 3px;
     border-radius: 5px;
-    background-color: rgb(0, 19, 68);
+    background-color: black;
     font-size: 20px;
 }
 
