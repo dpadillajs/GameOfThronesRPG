@@ -29,67 +29,51 @@
 
             <div id="hero-grid">
 
-                <div id="starks">
+                <div class="relative-cards" id="starks">
 
-                    <div class="relative-cards access-stark2">
-
-                        <div class="relative-cards access-stark">
-                            <img class="battle-cards" id="starks-card" src="assets/images/Stark.jpg" alt="Battle Card feat. Jon Snow">
-                            <p class="hitpoints stark-hp">hp: 100</p>
-                            <p class="card-names">Jon Snow</p>
-                        </div>
-
-                        <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
-
+                    <div class="relative-cards" id="starks-card" js-card-move>
+                        <img class="battle-cards" src="assets/images/Stark.jpg" alt="Battle Card feat. Jon Snow">
+                        <p class="hitpoints stark-hp">hp: 100</p>
+                        <p class="card-names">Jon Snow</p>
                     </div>
+
+                    <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
 
                 </div>
 
-                <div id="lannisters">
+                <div class="relative-cards" id="lannisters">
 
-                    <div class="relative-cards access-lannister2">
-
-                        <div class="relative-cards access-lannister">
-                            <img class="battle-cards" id="lannisters-card" src="assets/images/Lannister.jpg" alt="Battle Card feat. Cersei Lannister">
-                            <p class="hitpoints lannister-hp">hp: 125</p>
-                            <p class="card-names">Cersei Lannister</p>
-                        </div>
-
-                        <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
-
+                    <div class="relative-cards" id="lannisters-card" js-card-move>
+                        <img class="battle-cards" src="assets/images/Lannister.jpg" alt="Battle Card feat. Cersei Lannister">
+                        <p class="hitpoints lannister-hp">hp: 125</p>
+                        <p class="card-names">Cersei Lannister</p>
                     </div>
+
+                    <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
 
                 </div>
 
-                <div id="targaryens">
+                <div class="relative-cards" id="targaryens">
 
-                    <div class="relative-cards access-targaryen2">
-                        
-                        <div class="relative-cards access-targaryen">
-                            <img class="battle-cards"  id="targaryens-card" src="assets/images/Targaryen.jpg" alt="Battle Card feat. Daenerys Targaryen">
-                            <p class="hitpoints targaryen-hp">hp: 150</p>
-                            <p class="card-names">Daenerys Targaryen</p>
-                        </div>
-
-                        <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
-
+                    <div class="relative-cards" id="targaryens-card" js-card-move>
+                        <img class="battle-cards" src="assets/images/Targaryen.jpg" alt="Battle Card feat. Daenerys Targaryen">
+                        <p class="hitpoints targaryen-hp">hp: 150</p>
+                        <p class="card-names">Daenerys Targaryen</p>
                     </div>
+
+                    <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
 
                 </div>
 
-                <div id="white-walkers">
+                <div class="relative-cards" id="white-walkers">
 
-                    <div class="relative-cards access-walker2">
-
-                        <div class="relative-cards access-walker">
-                            <img class="battle-cards" id="walkers-card" src="assets/images/White Walkers.jpg" alt="Battle Card feat. The Night King">
-                            <p class="hitpoints walker-hp">hp: 200</p>
-                            <p class="card-names">The Night King</p>
-                        </div>
-
-                        <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
-
+                    <div class="relative-cards" id="walkers-card" js-card-move>
+                        <img class="battle-cards" src="assets/images/White Walkers.jpg" alt="Battle Card feat. The Night King">
+                        <p class="hitpoints walker-hp">hp: 200</p>
+                        <p class="card-names">The Night King</p>
                     </div>
+
+                    <img class="battle-outline" src="assets/images/HeroShell.png" alt="Hero Placeholder">
 
                 </div>
 
@@ -99,14 +83,14 @@
 
                 <section id="result-grid">
 
-                    <p class="results" id="attacker-results">You have decreased Cersei Lannister's soldiers by 25pts.</p>
+                    <p class="results" id="attacker-results"></p>
 
                     <div id="game-controls">
                         <button type="button" id="attack-button" class="button-adj">Attack</button>
                         <button type="button" id="restart-button" class="button-adj">Restart</button>
                     </div>
 
-                    <p class="results" id="defender-results">Cersei Lannister has decreased your soldiers numbers by 10pts.</p>
+                    <p class="results" id="defender-results"></p>
 
                 </section>
 
