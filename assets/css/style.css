@@ -195,6 +195,7 @@ a:hover {
 .results {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     font-family: 'Cormorant Unicase', serif;
     color: white;

@@ -68,9 +68,11 @@ var attackSound = $('#atk-sound');
 
 var battleCount = 0;
 var atkPower = 0;
+
 var attackerCard;
 var defenderCard;
 var defeatedOpp;
+
 var flagHero = false;
 var flagEnemy = false;
 var flagAttack = false;
@@ -113,14 +115,15 @@ function assignStage() {
             flagHero = true;
             $headerText.text("Declare Your Enemy");
 
-        } else if (!flagEnemy) {
+        } else if (!flagEnemy && !(this.parentNode.classList.contains("atk-position"))) {
+            $("a").attr("href", "#iron-throne");
             playBells();
             $defPosition.append(this);
             flagAttack = false;    
             defeatedOpp = this;
             defenderCard = extractData(this.id);
-            $atkResults.text('"The army awaits your command. Shall we proceed?"');
-            $defResults.text(defenderCard.name + " leads an army and draws near.");
+            $atkResults.text('"The army awaits your command."');
+            $defResults.text(defenderCard.name + "'s army draws near.");
             flagEnemy = true;
         }
     });
@@ -145,9 +148,8 @@ function attackStage() {
             flagAttack = true; 
             if (battleCount === 3) {
                 flagEnemy = true;
-                flagHero = true;
                 flagAttack = true; 
-                $atkResults.text("You have defeated everyone who opposed you. The Iron Throne is yours.");
+                $atkResults.text("You have broken the wheel. The Iron Throne is yours.");
                 $defResults.text("Power resides where men believe it resides. It's a trick. A shadow on the wall...");
                 return;
             }   
@@ -157,7 +159,6 @@ function attackStage() {
             attackerCard.hp -= defenderCard.counterAtk;
             if (attackerCard.hp <= 0) {
                 flagEnemy = true;
-                flagHero = true;
                 flagAttack = true;    
                 attackerCard.hp = 0;
                 attackerCard.updateHpText();
