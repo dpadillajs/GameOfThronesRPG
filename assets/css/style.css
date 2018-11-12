@@ -152,9 +152,18 @@ a:hover {
     width: 200px;
 }
 
-.card-format {
+.atkdef-format {
     position: absolute;
     z-index: 4;
+    border: solid rgb(255, 255, 255) 10px;
+    border-radius: 10%;
+    height: 273px;
+    width: 200px;
+}
+
+.card-format {
+    position: absolute;
+    z-index: 3;
     border: solid rgb(255, 255, 255) 10px;
     border-radius: 10%;
     height: 273px;
