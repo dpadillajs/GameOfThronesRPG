@@ -152,7 +152,7 @@ function attackStage() {
                 blockFromChoosingDefender = true;
                 ignoreAtkBtnClick = true; 
                 $('#throne-seat').append($heroDiv);
-                $atkResults.text("You have broken the wheel. The Iron Throne is yours.");
+                $atkResults.text("You have broken the wheel with " + attackerCard.hp + " soldiers left to rebuild. The Iron Throne is yours.");
                 $defResults.text("Power resides where men believe it resides. It's a trick. A shadow on the wall...");
                 return;
             }   
