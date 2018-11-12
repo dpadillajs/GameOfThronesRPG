@@ -288,3 +288,8 @@ footer {
     height: 273px;
     width: 200px;
 }
+
+#attack-button:hover,
+#restart-button:hover {
+    transform: scale(1.1);
+}

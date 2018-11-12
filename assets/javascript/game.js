@@ -139,6 +139,7 @@ function attackStage() {
         if (ignoreAtkBtnClick) {
             return;
         }
+        storingInitialHp = attackerCard.hp;
         defenderCard.hp -= attackerCard.atkBoost();
         playOnAtkBtnClick();
         if (defenderCard.hp <= 0) {
