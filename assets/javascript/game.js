@@ -71,18 +71,19 @@ var atkPower = 0;
 
 var attackerCard;
 var defenderCard;
-var defeatedOpp;
+var $enemyDiv;
+var $heroDiv;
 
-var flagHero = false;
-var flagEnemy = false;
-var flagAttack = false;
+var blockFromChoosingAttacker = false;
+var blockFromChoosingDefender = false;
+var ignoreAtkBtnClick = false;
 
-function playSwords() {
+function playOnAtkBtnClick() {
     attackSound[0].play();
     attackSound.prop("volume", 0.25);
 }
 
-function playBells() {
+function playIfCardIsChosen() {
     assignSound[0].play();
     assignSound.prop("volume", 0.5);
 }
@@ -107,24 +108,25 @@ function extractData(cardId) {
 }
 
 function assignStage() {
-    $("[js-card-move]").on("click", function() {
-        if(!flagHero) {
-            playBells();      
+    $("[js-battleCard]").on("click", function() {
+        if(!blockFromChoosingAttacker) {
+            playIfCardIsChosen();      
             $atkPosition.append(this);
+            $heroDiv = this;
             attackerCard = extractData(this.id);
-            flagHero = true;
+            blockFromChoosingAttacker = true;
             $headerText.text("Declare Your Enemy");
 
-        } else if (!flagEnemy && !(this.parentNode.classList.contains("atk-position"))) {
+        } else if (!blockFromChoosingDefender && !(this.parentNode.classList.contains("atk-position"))) {
             $("a").attr("href", "#iron-throne");
-            playBells();
+            playIfCardIsChosen();
             $defPosition.append(this);
-            flagAttack = false;    
-            defeatedOpp = this;
+            ignoreAtkBtnClick = false;    
+            $enemyDiv = this;
             defenderCard = extractData(this.id);
             $atkResults.text('"The army awaits your command."');
             $defResults.text(defenderCard.name + "'s army draws near.");
-            flagEnemy = true;
+            blockFromChoosingDefender = true;
         }
     });
 }
@@ -134,21 +136,22 @@ function attackStage() {
         if (!attackerCard || !defenderCard) {
             return;     
         }
-        if (flagAttack) {
+        if (ignoreAtkBtnClick) {
             return;
         }
         defenderCard.hp -= attackerCard.atkBoost();
-        playSwords();
+        playOnAtkBtnClick();
         if (defenderCard.hp <= 0) {
-            defeatedOpp.remove();
+            $enemyDiv.remove();
             battleCount++;
-            flagEnemy = false;
+            blockFromChoosingDefender = false;
             $atkResults.text("And the climb to the Iron Throne continues...");
             $defResults.text(defenderCard.name + "'s army has been defeated. " + defenderCard.name + " died in combat.");
-            flagAttack = true; 
+            ignoreAtkBtnClick = true; 
             if (battleCount === 3) {
-                flagEnemy = true;
-                flagAttack = true; 
+                blockFromChoosingDefender = true;
+                ignoreAtkBtnClick = true; 
+                $('#throne-seat').append($heroDiv);
                 $atkResults.text("You have broken the wheel. The Iron Throne is yours.");
                 $defResults.text("Power resides where men believe it resides. It's a trick. A shadow on the wall...");
                 return;
@@ -158,8 +161,8 @@ function attackStage() {
         if (attackerCard.hp > 0 && defenderCard.hp > 0) {
             attackerCard.hp -= defenderCard.counterAtk;
             if (attackerCard.hp <= 0) {
-                flagEnemy = true;
-                flagAttack = true;    
+                blockFromChoosingDefender = true;
+                ignoreAtkBtnClick = true;    
                 attackerCard.hp = 0;
                 attackerCard.updateHpText();
                 $atkResults.text("When you play the game of thrones, you win or you die. There is no middle ground.");

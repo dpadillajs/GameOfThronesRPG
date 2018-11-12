@@ -88,17 +88,22 @@ a:hover {
 .hitpoints {
     position: absolute;
     z-index: 4;
-    bottom: -15px;
-    font-size: 45px;
+    bottom: -28px;
+    font-size: 20px;
     color: white;
-    opacity: .75;
     font-family: 'IM Fell DW Pica SC', serif;
+    background: #333333;
+    letter-spacing: 10px;
+    padding: 0 10px;
+    border: solid white 2px;
+    border-radius: 5px;
+    padding-left: 15px;
 }
 
 .card-names {
     position: absolute;
     z-index: 4;
-    top: 0;
+    bottom: 5px;
     margin-top: 10px;
     font-size: 20px;
     color: white;
@@ -124,16 +129,17 @@ a:hover {
 .attacker {
     position: absolute;
     z-index: 3;
-    border: solid rgb(27, 66, 108) 10px;
+    border: solid white 10px;
     border-radius: 10%;
     height: 273px;
     width: 200px;
 }
 
-#iron-throne {
+.iron-throne {
     grid-area: throne;
     height: 400px;
     width: 351px;
+    position: relative;
 }
 
 #defender-card {
@@ -146,7 +152,7 @@ a:hover {
 .defender {
     position: absolute;
     z-index: 3;
-    border: solid rgb(108, 27, 27) 10px;
+    border: solid white 10px;
     border-radius: 10%;
     height: 273px;
     width: 200px;
@@ -159,6 +165,7 @@ a:hover {
     border-radius: 10%;
     height: 273px;
     width: 200px;
+    opacity: .5;
 }
 
 .card-format {
@@ -168,6 +175,7 @@ a:hover {
     border-radius: 10%;
     height: 273px;
     width: 200px;
+    opacity: .75
 }
 
 .card-role {
@@ -215,6 +223,7 @@ a:hover {
     width: 300px;
     height: 100px;
     padding: 10px;
+    margin: auto;
 }
 
 #game-controls {
@@ -233,7 +242,7 @@ a:hover {
 }
 
 .button-adj {
-    margin: auto 50px;
+    margin: auto 37px;
     width: 100px;
     height: 40px;
     font-family: 'Cormorant Unicase', serif;
@@ -260,7 +269,8 @@ a:hover {
 
 footer {
     height: 100px;
-    background: url("../images/FrozenTile.jpg");
+    background: black;
+    color: white;
     background-repeat: repeat;
     opacity: .6;
     display: flex;
@@ -269,4 +279,12 @@ footer {
     font-size: 25px;
     font-family: 'Cormorant Unicase', serif;
     font-weight: bold;
+}
+
+#throne-seat {
+    position: absolute;
+    top: 80px;
+    right: 72px;
+    height: 273px;
+    width: 200px;
 }
