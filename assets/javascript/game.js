@@ -68,6 +68,7 @@ var attackSound = $('#atk-sound');
 
 var battleCount = 0;
 var atkPower = 0;
+var totalDeadSoldiersFromAttacker;
 
 var attackerCard;
 var defenderCard;
@@ -116,6 +117,8 @@ function assignStage() {
             attackerCard = extractData(this.id);
             blockFromChoosingAttacker = true;
             $headerText.text("Declare Your Enemy");
+            const initialAttackerHP = attackerCard.hp;
+            totalDeadSoldiersFromAttacker = initialAttackerHP;
 
         } else if (!blockFromChoosingDefender && !(this.parentNode.classList.contains("atk-position"))) {
             $("a").attr("href", "#iron-throne");
@@ -139,7 +142,6 @@ function attackStage() {
         if (ignoreAtkBtnClick) {
             return;
         }
-        storingInitialHp = attackerCard.hp;
         defenderCard.hp -= attackerCard.atkBoost();
         playOnAtkBtnClick();
         if (defenderCard.hp <= 0) {
@@ -153,7 +155,7 @@ function attackStage() {
                 blockFromChoosingDefender = true;
                 ignoreAtkBtnClick = true; 
                 $('#throne-seat').append($heroDiv);
-                $atkResults.text("You have broken the wheel with " + attackerCard.hp + " soldiers left to rebuild. The Iron Throne is yours.");
+                $atkResults.text((totalDeadSoldiersFromAttacker -= attackerCard.hp) + " of your men have died to break the wheel. The Iron Throne is yours.");
                 $defResults.text("Power resides where men believe it resides. It's a trick. A shadow on the wall...");
                 return;
             }   
