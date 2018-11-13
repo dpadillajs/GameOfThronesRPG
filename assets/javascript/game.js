@@ -65,6 +65,8 @@ var $atkPosition = $('.atk-position');
 var $defPosition = $('.def-position');
 var assignSound = $('#bell-sound');
 var attackSound = $('#atk-sound');
+var autoplaySong = $('#got-music');
+var autoplaySnow = $('#snow-music');
 
 var battleCount = 0;
 var atkPower = 0;
@@ -78,6 +80,9 @@ var $heroDiv;
 var blockFromChoosingAttacker = false;
 var blockFromChoosingDefender = false;
 var ignoreAtkBtnClick = false;
+
+autoplaySong[0].play();
+autoplaySnow[0].play();
 
 function playOnAtkBtnClick() {
     attackSound[0].play();
