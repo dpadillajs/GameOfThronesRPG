@@ -81,8 +81,11 @@ var blockFromChoosingAttacker = false;
 var blockFromChoosingDefender = false;
 var ignoreAtkBtnClick = false;
 
-autoplaySong[0].play();
-autoplaySnow[0].play();
+function autoPlay() {
+    autoplaySong[0].play();
+    autoplaySnow[0].play();
+    autoplaySnow.prop("volume", 0.4);
+}
 
 function playOnAtkBtnClick() {
     attackSound[0].play();
@@ -116,6 +119,7 @@ function extractData(cardId) {
 function assignStage() {
     $("[js-battleCard]").on("click", function() {
         if(!blockFromChoosingAttacker) {
+            autoPlay();
             playIfCardIsChosen();      
             $atkPosition.append(this);
             $heroDiv = this;
