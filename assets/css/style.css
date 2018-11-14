@@ -1,268 +1,291 @@
 /* General Formatting Below */
 body {
-           background: url(../images/DarkTile.jpg);
-    background-repeat: repeat;
+  background: url(../images/DarkTile.jpg);
+  background-repeat: repeat;
 }
 
 h1 {
-          color: white;
-      font-size: 125px;
-    font-family: 'IM Fell DW Pica SC', serif;
+  color: white;
+  font-size: 125px;
+  font-family: "IM Fell DW Pica SC", serif;
 }
 
 #user-choice {
-              display: flex;
-      justify-content: center;
-          align-items: center;
-               height: 200px;
-           background: url(../images/Banners.png);
-    background-repeat: repeat;
-              opacity: .6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background: url(../images/Banners.png);
+  background-repeat: repeat;
+  opacity: 0.6;
 }
 
-#container { min-height: calc(100vh - 100px); }
+#container {
+  min-height: calc(100vh - 100px);
+}
 
 /* All Styling for 1st Grid Elements Only */
 #hero-grid {
-                  display: grid;
-         background-color: rgba(169, 169, 169, 0.4);
-                    width: 90%;
-                   margin: 40px auto;
-              padding-top: 40px;
-           padding-bottom: 40px;
-            border-radius: 10px;
-    grid-template-columns: repeat(9, 1fr);
-       grid-template-rows: 1fr;
-      grid-template-areas: ". starks . lannisters . targaryens . walkers .";
+  display: grid;
+  background-color: rgba(169, 169, 169, 0.4);
+  width: 90%;
+  margin: 40px auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 10px;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: ". starks . lannisters . targaryens . walkers .";
 }
 
-#starks { grid-area: starks; }
-#lannisters { grid-area: lannisters; }
-#targaryens { grid-area: targaryens; }
-#white-walkers { grid-area: walkers; }
+#starks {
+  grid-area: starks;
+}
+#lannisters {
+  grid-area: lannisters;
+}
+#targaryens {
+  grid-area: targaryens;
+}
+#white-walkers {
+  grid-area: walkers;
+}
 
 .relative-cards {
-            display: flex;
-    justify-content: center;
-           position: relative;
-             height: 273px;
-              width: 200px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 273px;
+  width: 200px;
 }
 
 .battle-cards {
-         position: static;
-          z-index: 2;
-           border: solid white 10px;
-    border-radius: 10%;
-           height: 273px;
-            width: 200px;
-           filter: contrast(1.25);
+  position: static;
+  z-index: 2;
+  border: solid white 10px;
+  border-radius: 10%;
+  height: 273px;
+  width: 200px;
+  filter: contrast(1.25);
 }
 
-a:hover { filter: brightness(1.25); }
+a:hover {
+  filter: brightness(1.25);
+}
 
 .battle-outline {
-         position: absolute;
-          z-index: -1;
-              top: 0;
-           border: solid black 10px;
-    border-radius: 10%;
-           height: 273px;
-            width: 200px;
-           filter: contrast(1.2);
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  border: solid black 10px;
+  border-radius: 10%;
+  height: 273px;
+  width: 200px;
+  filter: contrast(1.2);
 }
 
 .card-names {
-       position: absolute;
-        z-index: 4;
-         bottom: 5px;
-     margin-top: 10px;
-      font-size: 20px;
-          color: white;
-        opacity: .75;
-    font-family: 'IM Fell DW Pica SC', serif;
+  position: absolute;
+  z-index: 4;
+  bottom: 5px;
+  margin-top: 10px;
+  font-size: 20px;
+  color: white;
+  opacity: 0.75;
+  font-family: "IM Fell DW Pica SC", serif;
 }
 
 .hitpoints {
-          position: absolute;
-           z-index: 4;
-            bottom: -28px;
-         font-size: 20px;
-             color: white;
-       font-family: 'IM Fell DW Pica SC', serif;
-        background: #333333;
-    letter-spacing: 10px;
-           padding: 0 10px;
-            border: solid white 2px;
-     border-radius: 5px;
-      padding-left: 15px;
+  position: absolute;
+  z-index: 4;
+  bottom: -28px;
+  font-size: 20px;
+  color: white;
+  font-family: "IM Fell DW Pica SC", serif;
+  background: #333333;
+  letter-spacing: 10px;
+  padding: 0 10px;
+  border: solid white 2px;
+  border-radius: 5px;
+  padding-left: 15px;
 }
 
 /* All Styling for 2nd Grid Elements Only */
 #result-grid {
-                  display: grid;
-    grid-template-columns: repeat(7, 1fr);
-      grid-template-areas: ". attack-info . controls . defend-info .";
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-areas: ". attack-info . controls . defend-info .";
 }
 
-#attacker-results { grid-area: attack-info; }
-#defender-results { grid-area: defend-info; }
+#attacker-results {
+  grid-area: attack-info;
+}
+#defender-results {
+  grid-area: defend-info;
+}
 
 #game-controls {
-          grid-area: controls;
-            display: flex;
-        align-items: center;
-    justify-content: center;
+  grid-area: controls;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-adj {
-              margin: auto 37px;
-               width: 100px;
-              height: 40px;
-         font-family: 'Cormorant Unicase', serif;
-               color: white;
-             opacity: .75;
-         font-weight: bold;
-              border: solid white 3px;
-       border-radius: 5px;
-    background-color: black;
-           font-size: 20px;
+  margin: auto 37px;
+  width: 100px;
+  height: 40px;
+  font-family: "Cormorant Unicase", serif;
+  color: white;
+  opacity: 0.75;
+  font-weight: bold;
+  border: solid white 3px;
+  border-radius: 5px;
+  background-color: black;
+  font-size: 20px;
 }
 
-#attack-button:hover, #restart-button:hover { transform: scale(1.1); }
+#attack-button:hover,
+#restart-button:hover {
+  transform: scale(1.1);
+}
 
 .results {
-            display: flex;
-        align-items: center;
-    justify-content: center;
-         text-align: center;
-        font-family: 'Cormorant Unicase', serif;
-              color: white;
-            opacity: .75;
-        font-weight: bold;
-             border: solid white 3px;
-      border-radius: 5px;
-              width: 300px;
-             height: 100px;
-            padding: 10px;
-             margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Cormorant Unicase", serif;
+  color: white;
+  opacity: 0.75;
+  font-weight: bold;
+  border: solid white 3px;
+  border-radius: 5px;
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+  margin: auto;
 }
 
 /* All Styling for 3rd Grid Elements Only */
 .battle-grid {
-                  display: grid;
-    grid-template-columns: repeat(7, 1fr);
-       grid-template-rows: 1fr;
-      grid-template-areas: ". attacker . throne . defender .";
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: ". attacker . throne . defender .";
 }
 
 #attacker-card {
-     grid-area: attacker;
-        height: 273px;
-         width: 200px;
-    margin-top: 80px;
+  grid-area: attacker;
+  height: 273px;
+  width: 200px;
+  margin-top: 80px;
 }
 
 #defender-card {
-     grid-area: defender;
-        height: 273px;
-         width: 200px;
-    margin-top: 80px;
+  grid-area: defender;
+  height: 273px;
+  width: 200px;
+  margin-top: 80px;
 }
 
 .iron-throne {
-    grid-area: throne;
-       height: 400px;
-        width: 351px;
-     position: relative;
+  grid-area: throne;
+  height: 400px;
+  width: 351px;
+  position: relative;
 }
 
 .attacker {
-         position: absolute;
-          z-index: 3;
-           border: solid white 10px;
-    border-radius: 10%;
-           height: 273px;
-            width: 200px;
+  position: absolute;
+  z-index: 3;
+  border: solid white 10px;
+  border-radius: 10%;
+  height: 273px;
+  width: 200px;
 }
 
 .defender {
-         position: absolute;
-          z-index: 3;
-           border: solid white 10px;
-    border-radius: 10%;
-           height: 273px;
-            width: 200px;
+  position: absolute;
+  z-index: 3;
+  border: solid white 10px;
+  border-radius: 10%;
+  height: 273px;
+  width: 200px;
 }
 
 .atkdef-format {
-         position: absolute;
-          z-index: 4;
-           border: solid rgb(255, 255, 255) 10px;
-    border-radius: 10%;
-           height: 273px;
-            width: 200px;
-          opacity: .5;
+  position: absolute;
+  z-index: 4;
+  border: solid rgb(255, 255, 255) 10px;
+  border-radius: 10%;
+  height: 273px;
+  width: 200px;
+  opacity: 0.5;
 }
 
 .card-format {
-         position: absolute;
-          z-index: 3;
-           border: solid rgb(255, 255, 255) 10px;
-    border-radius: 10%;
-           height: 273px;
-            width: 200px;
-          opacity: .75
+  position: absolute;
+  z-index: 3;
+  border: solid rgb(255, 255, 255) 10px;
+  border-radius: 10%;
+  height: 273px;
+  width: 200px;
+  opacity: 0.75;
 }
 
 .card-role {
-            position: absolute;
-             z-index: 5;
-                 top: 44px;
-               right: -19px;
-           font-size: 15px;
-        writing-mode: vertical-rl;
-    text-orientation: upright;
-         font-family: 'IM Fell DW Pica SC', serif;
-               color: white;
-       border-radius: 5px;
-         padding-top: 5px;
-      padding-bottom: 5px;
-              border: solid white 2px;
+  position: absolute;
+  z-index: 5;
+  top: 44px;
+  right: -19px;
+  font-size: 15px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: "IM Fell DW Pica SC", serif;
+  color: white;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: solid white 2px;
 }
 
-.atk-role { background-color: rgb(27, 66, 108); }
-.def-role { background-color: rgb(108, 27, 27); }
+.atk-role {
+  background-color: rgb(27, 66, 108);
+}
+.def-role {
+  background-color: rgb(108, 27, 27);
+}
 
 .blue-fire {
-      filter: hue-rotate(180deg);
-    position: absolute;
-     z-index: 1;
+  filter: hue-rotate(180deg);
+  position: absolute;
+  z-index: 1;
 }
 
 .red-fire {
-    position: absolute;
-     z-index: 1;
+  position: absolute;
+  z-index: 1;
 }
 
 #throne-seat {
-    position: absolute;
-         top: 80px;
-       right: 72px;
-      height: 273px;
-       width: 200px;
+  position: absolute;
+  top: 80px;
+  right: 72px;
+  height: 273px;
+  width: 200px;
 }
 
 footer {
-               height: 100px;
-           background: black;
-                color: white;
-    background-repeat: repeat;
-              opacity: .6;
-              display: flex;
-      justify-content: center;
-          align-items: center;
-            font-size: 25px;
-          font-family: 'Cormorant Unicase', serif;
-          font-weight: bold;
+  height: 100px;
+  background: black;
+  color: white;
+  background-repeat: repeat;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-family: "Cormorant Unicase", serif;
+  font-weight: bold;
 }
