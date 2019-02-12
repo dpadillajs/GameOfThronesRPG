@@ -1,10 +1,10 @@
-# RPG Card Game
+# The Game of Thrones Card Game
 
 An rpg _card_ game using new skills learned in JavaScript and jQuery.
 
 ### Link to Game
 
-https://dpadillanyg.github.io/unit-4-game/
+https://dpadillajs.github.io/GameOfThronesRPG/
 
 **Browser compatibility checked with:**
 
